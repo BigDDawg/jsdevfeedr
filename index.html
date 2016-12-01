@@ -15,60 +15,92 @@
 
     <body>
         <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please
+           <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
         <header>
           <section class="container">
             <a href="#"><h1>Feedr</h1></a>
+
             <nav>
               <ul>
                 <li><a href="#">News Source: <span>Source Name</span></a>
                   <ul>
-                      <li><a href="#">Source 1</a></li>
-                      <li><a href="#">Source 2</a></li>
-                      <li><a href="#">Source 3</a></li>
+                      <li><a href="#article1" id="article1">Pro Golf News</a></li>
+                      <li><a href="#article2" id="article2">Source 2</a></li>
+                      <li><a href="#article3" id="article3">Source 3</a></li>
                   </ul>
                 </li>
               </ul>
-              <section id="search">
+
+              <section id="search" class="active">
                 <input type="text" name="name" value="">
-                <a href="#"><img src="images/search.png" alt="" /></a>
+                <a href="#"><img id="searchClick" src="images/search.png" alt="" /></a>
+
+ <!--// When the user taps this icon, the input box should expand.-->
+ <!--// John says to toggle the active class for this search container.-->
+
               </section>
+
             </nav>
+
             <div class="clearfix"></div>
+
           </section>
+
         </header>
+
+<!--//        When the user selects an article's title show the #popUp` overlay.-->
+  <!--//      The content of the article must be inserted in the `.container` class inside-->
+  <!--//      `#popUp`. Make sure you remove the `.loader` class when toggling the article-->
+ <!--//       information in the pop-up.-->
+
+
         <div id="popUp" class="loader hidden">
-          <a href="#" class="closePopUp">X</a>
+<!--This popup is hidden. Articles - on-click.......should go into the pop up-->
+
+            <a href="#" class="closePopUp"></a>
           <div class="container">
-            <h1>Article title here</h1>
+            <h1></h1>
             <p>
-              Article description/content here.
+
             </p>
             <a href="#" class="popUpAction" target="_blank">Read more from source</a>
           </div>
         </div>
+
+
         <section id="main" class="container">
-          <article class="article">
+
+          <article class="article" id="article1">
+
             <section class="featuredImage">
+
               <img src="images/article_placeholder_1.jpg" alt="" />
+
             </section>
+
             <section class="articleContent">
-                <a href="#"><h3>Test article title</h3></a>
-                <h6>Lifestyle</h6>
+
+                <a href="#"><h3 id="article1"></h3></a>
+                            <h6>Category, Tag - Should Display below the Title:</h6>
             </section>
+
             <section class="impressions">
-              526
+               526
             </section>
+
             <div class="clearfix"></div>
           </article>
-          <article class="article">
+
+
+          <article class="article" id="article2">
             <section class="featuredImage">
               <img src="images/article_placeholder_2.jpg" alt="" />
             </section>
             <section class="articleContent">
-                <a href="#"><h3>Test article title</h3></a>
+                <a href="#"><h3>Second article title</h3></a>
                 <h6>Lifestyle</h6>
             </section>
             <section class="impressions">
@@ -76,12 +108,14 @@
             </section>
             <div class="clearfix"></div>
           </article>
-          <article class="article">
+
+
+          <article class="article" id="article3">
             <section class="featuredImage">
               <img src="images/article_placeholder_2.jpg" alt="" />
             </section>
             <section class="articleContent">
-                <a href="#"><h3>Test article title</h3></a>
+                <a href="#"><h3>Third article title</h3></a>
                 <h6>Lifestyle</h6>
             </section>
             <section class="impressions">
@@ -89,20 +123,24 @@
             </section>
             <div class="clearfix"></div>
           </article>
-          <article class="article">
-            <section class="featuredImage">
-              <img src="images/article_placeholder_1.jpg" alt="" />
-            </section>
-            <section class="articleContent">
-                <a href="#"><h3>Test article title</h3></a>
-                <h6>Lifestyle</h6>
-            </section>
-            <section class="impressions">
-              526
-            </section>
-            <div class="clearfix"></div>
-          </article>
+
+
         </section>
+
+
+        <article class="article" id="articleTest">
+           <h1>Article Testing</h1>
+
+           <div class="clearfix"></div>
+        </article>
+
+
+        <div id="second">
+           <h1>Testing</h1>
+
+
+        </div>
+
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>

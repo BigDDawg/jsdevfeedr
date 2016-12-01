@@ -23,7 +23,27 @@
 
 */
 
- /*
+
+/* 1. Add all the DOM functionality first
+
+ API Key from:
+ http://www.npr.org/account/profile?status=verified&uidt=1479861635
+
+ MDI4NjQyNzE4MDE0Nzk4NjE2NzRmMzgxMQ000
+
+ Give the user the ability to pull from a multiple news sources. Here are two news sources we suggest:
+
+
+ $.get("https://accesscontrolalloworiginall.herokuapp.com/http://digg.com/api/news/popular.json",
+
+        // BELOW IS THE CALLBACK: BELOW IS THE CALLBACK: BELOW IS THE CALLBACK:
+
+       function(results){
+       console.log(results);
+       results.data.feed.forEach(function(result){
+       $("ul").append("<li>"+result.content.title+"</li>")
+    })
+ })
 
  If you use your own feeds, they must have APIs with the following minimum
  requirements:
@@ -82,11 +102,9 @@
 
 
 // This should pull the APIs when the window is loaded automatically.
-
 window.onload = function () {
-   alert('loaded testing');
+   alert('loaded');
 };
-
 
 
 // 2. When you successfully retrieve information from
@@ -102,37 +120,19 @@ window.onload = function () {
 // $(this).siblings().css("color", "yellow");
 // $("body section.container").css("color", "green");
 // hide();
-//
 
-// on click a link a the top, the article should show and the others should hide,
-// when you click on another link at the top, the article should show and the other should hide.
-// !!! This should happen after you have done it once,......Link should display and link back to just
-// one article.
-
-$("ul li a#article1").click(function(){
-   $('article#article1').show();
-   $('article#article2').hide();
-   $('article#article3').hide();
+$("ul li a").click(function(){
+   $("header").siblings().hide();
+   $(this).show();
+   $("body").append();
+   //Want to append this articles and it's structure to only show it.
 });
 
-
-$("ul li a#article2").click(function(){
-   $('article#article1').hide();
-   $('article#article2').show();
-   $('article#article3').hide();
-});
-
-$("ul li a#article3").click(function(){
-   $('article#article1').hide();
-   $('article#article2').hide();
-   $('article#article3').show();
-});
-
-// Hide all the elements in the DOM that have a class of "article".
 
 // When the user 1. selects an article's title - H3 Tag - show the #popUp overlay.
 // 2. The content of the article must be inserted in the `.container` class inside--> `#popUp`.
 // 3. Remove the `.loader` class when toggling the article--> information in the pop-up.
+
 
 
 $("h3").click(function(){
@@ -158,43 +158,3 @@ $("img#searchClick").click(function(event){
    event.preventDefault();
    $("section#search").toggleClass("active");
 });
-
-
-$.ajax({
-   url:"http://content.guardianapis.com/search?order-by=newest&show-tags=impressions&show-elements=image&q=golf&api-key=85f4d306-2499-4efd-9db7-19018a16837c",
-   success:function(responseAPI){
-      for(var i = 0; i < responseAPI.response.results.length; i++){
-         $("#articleTest").append(
-            "<h3>"+responseAPI.response.results[i].webTitle+"</h3>"+
-            "<a>"+responseAPI.response.results[i].webUrl+"</a>"
-
-         );
-      }
-   }
-})
-
-
-$.ajax({
-   url:"http://content.guardianapis.com/search?order-by=newest&show-tags=impressions&show-elements=image&q=golf&api-key=85f4d306-2499-4efd-9db7-19018a16837c",
-   success:function(responseAPI){
-      for(var i = 0; i < responseAPI.response.results.length; i++){
-         $("#article1").first().append(
-            "<h1>"+responseAPI.response.results[i].webTitle+"</h1>"
-
-         );
-      }
-   }
-})
-
-$.ajax({
-url:"https://www.reddit.com/.json",
-   success:function(response){
-   for(var i = 0; i < response.data.children.length; i++){
-      $("#first").append(
-         "<h1>"+response.data.children[i].data.title+"</h1>"+
-         "<img src='"+response.data.children[i].data.thumbnail+"'>"
-      );
-   }
-}
-})
-
